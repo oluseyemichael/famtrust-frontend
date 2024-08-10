@@ -13,6 +13,7 @@ const DashboardCard = ({
   balance,
   SubacctTransfer,
   RequestFunds,
+  handleClick,
 }) => {
   const [nextModal, setNextModal] = useState(false);
   const [show, setShow] = useState(false);
@@ -77,13 +78,14 @@ const DashboardCard = ({
             <div>
               <button
                 className="bg-darkerGrey  px-4 py-2 rounded-lg hover:bg-faint-blue"
-                onClick={onSubmitHandler}
+                onClick={handleClick}
               >
                 {Withdraw}
               </button>
+
               <div>
                 {/* Pass in modals for Withdrawal */}
-                {nextModal && <ModalWithdraw />}
+                {/* {nextModal && <ModalWithdraw />} */}
               </div>
             </div>
           ) : (

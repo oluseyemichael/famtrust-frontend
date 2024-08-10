@@ -24,7 +24,6 @@ const AdminFamilyTransaction = () => {
             // balance={`{balance}`.toLocaleString()}
             balance="12000"
             Transfer="Initiate New Transaction"
-            handleClick={console.log('b')}
           />
 
           {/* <UserInfo name="Ritji Ishaku" id="8327642732" />

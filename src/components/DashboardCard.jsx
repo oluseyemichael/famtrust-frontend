@@ -60,7 +60,15 @@ const DashboardCard = ({
               >
                 {Transfer}
               </button>
-              <div>{/* Pass in modals for Admin Transactions */}</div>
+              <div>
+                {/* Pass in modals for Admin Transactions */}
+                {nextModal && (
+                  <ModalTransType
+                    setNextModal={setNextModal}
+                    setShow={setShow}
+                  />
+                )}
+              </div>
             </div>
           ) : (
             ''
@@ -75,12 +83,7 @@ const DashboardCard = ({
               </button>
               <div>
                 {/* Pass in modals for Withdrawal */}
-                {nextModal && (
-                  <ModalTransType
-                    setNextModal={setNextModal}
-                    setShow={setShow}
-                  />
-                )}
+                {nextModal && <ModalWithdraw />}
               </div>
             </div>
           ) : (

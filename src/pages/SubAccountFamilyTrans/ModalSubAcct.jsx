@@ -25,6 +25,19 @@ const members = [
 ];
 
 const ModalSubAcct = ({ delModal }) => {
+  const [allValues, setAllValues] = useState({
+    amount: '',
+    select: '',
+    endDate: '',
+    pattern: '',
+    date: '',
+    sentDate: '',
+  });
+  const changeHandler = (e) => {
+    setAllValues({ ...allValues, [e.target.name]: e.target.value });
+    // setSelected(e.target.value);
+  };
+  console.log(allValues);
   const [drop, setDrop] = useState(false);
   const [selected, setSelected] = useState('');
   const onClickHandler = (members) => {
@@ -51,11 +64,11 @@ const ModalSubAcct = ({ delModal }) => {
           <input
             className="rounded-2xl w-full border-none outline-none"
             type="text"
-            name=""
-            id=""
+            name="select"
             value={selected}
+            id=""
             onClick={Toggle}
-            onChange={(e) => setSelected(e.target.value)}
+            onChange={changeHandler}
             placeholder="Select  family member to request funds from"
           />
           <div onClick={Toggle}>
@@ -85,6 +98,7 @@ const ModalSubAcct = ({ delModal }) => {
                 type="number"
                 name="amount"
                 id="amount"
+                onChange={changeHandler}
                 className="w-[100%] py-2 rounded-xl border-[1px] border-slate-300"
               />
             </div>
@@ -92,8 +106,9 @@ const ModalSubAcct = ({ delModal }) => {
               <label htmlFor="date">Sent Date</label>
               <input
                 type="date"
-                name="date"
+                name="sentDate"
                 id="date"
+                onChange={changeHandler}
                 placeholder="enter amount"
                 className="w-[100%] py-2 rounded-xl border-[1px] border-slate-300"
               />
@@ -108,6 +123,7 @@ const ModalSubAcct = ({ delModal }) => {
                   type="text"
                   name="pattern"
                   id="pattern"
+                  onChange={changeHandler}
                   placeholder="Set Recurrence Pattern"
                 />
                 <div>
@@ -120,9 +136,10 @@ const ModalSubAcct = ({ delModal }) => {
               <input
                 className="w-[100%] py-2 rounded-xl border-[1px]  border-slate-300"
                 type="date"
-                name="date"
+                name="endDate"
                 id="date"
-                placeholder="enter amount"
+                onChange={changeHandler}
+                placeholder="enter date"
               />
             </div>
           </div>

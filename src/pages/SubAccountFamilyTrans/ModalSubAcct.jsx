@@ -24,7 +24,17 @@ const members = [
   },
 ];
 
-const ModalSubAcct = ({ Toggle, show, delModal }) => {
+const ModalSubAcct = ({ delModal }) => {
+  const [drop, setDrop] = useState(false);
+  const [selected, setSelected] = useState('');
+  const onClickHandler = (members) => {
+    setDrop(true);
+    setSelected(members.Name);
+    setDrop(false);
+  };
+  const Toggle = () => {
+    setDrop((prev) => !prev);
+  };
   return (
     <div className="bg-[rgba(18,18,18,0.50)] fixed flex flex-col justify-center items-center top-[0] bottom-0 right-0 left-0">
       <div className="md:px-16 px-6 w-[60%] mx-auto bg-[#F9F8FF] py-3 border-[1px] border-[solid] border-[#E2E2E2] rounded my-10 text-base font-lato ">
@@ -39,26 +49,35 @@ const ModalSubAcct = ({ Toggle, show, delModal }) => {
         <p>Select family member to request funds from *</p>
         <div className="bg-white rounded py-2 flex justify-between items-center px-2 border-[1px] border-slate-300">
           <input
-            className="rounded-2xl"
+            className="rounded-2xl w-full border-none outline-none"
             type="text"
             name=""
             id=""
+            value={selected}
+            onClick={Toggle}
+            onChange={(e) => setSelected(e.target.value)}
             placeholder="Select  family member to request funds from"
           />
           <div onClick={Toggle}>
-            {show ? <IoIosArrowDown /> : <IoIosArrowUp />}
+            {drop ? <IoIosArrowDown /> : <IoIosArrowUp />}
           </div>
         </div>
-        <div>
-          {members.map((members) => (
-            <div key={members.id}>
-              <p className="border-b-[1px] border-b-slate-300 py-2 cursor-pointer bg-white text-base font-lato text-[#14183B]">
-                {members.Name}
-              </p>
-            </div>
-          ))}
-        </div>
-        <form className='py-4'>
+        {drop && (
+          <div>
+            {members.map((members) => (
+              <div key={members.id}>
+                <p
+                  className="border-b-[1px] border-b-slate-300 py-2 cursor-pointer bg-white text-base font-lato text-[#14183B]"
+                  onClick={() => onClickHandler(members)}
+                >
+                  {members.Name}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <form className="py-4">
           <div className="flex justify-between py-2">
             <div>
               <label htmlFor="amount">Amount</label>
@@ -89,7 +108,6 @@ const ModalSubAcct = ({ Toggle, show, delModal }) => {
                   type="text"
                   name="pattern"
                   id="pattern"
-                  
                   placeholder="Set Recurrence Pattern"
                 />
                 <div>

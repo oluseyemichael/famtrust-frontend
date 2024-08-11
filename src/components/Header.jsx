@@ -1,10 +1,11 @@
 // import React from "react";
 import { NavLink } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
+// import { HashLink } from 'react-router-hash-link';
 import logo from '/logofarm.png';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
+
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -32,7 +33,7 @@ const Header = () => {
             <GiHamburgerMenu className="text-tx md:hidden" />
           )}
         </div>
-        <div className="text-txtblue md:flex gap-5 hidden">
+        {/* <div className="text-txtblue md:flex gap-5 hidden">
           <HashLink smooth to="#about">
             About Us
           </HashLink>
@@ -45,7 +46,7 @@ const Header = () => {
           <HashLink smooth to="#help">
             Help & Support
           </HashLink>
-        </div>
+        </div> */}
         <div className="md:flex gap-5 hidden">
           <NavLink
             className="bg-white text-txtblue border-solid border-[1px] border-blue-600  rounded-lg"
@@ -66,7 +67,7 @@ const Header = () => {
           show ? 'block' : 'hidden'
         }`}
       >
-        <div onClick={closeShow} className="flex flex-col py-6 ">
+        {/* <div onClick={closeShow} className="flex flex-col py-6 ">
           <HashLink smooth className="py-4" to="#about">
             About Us
           </HashLink>
@@ -79,7 +80,7 @@ const Header = () => {
           <HashLink smooth className="py-4" to="#help">
             Help & Support
           </HashLink>
-        </div>
+        </div> */}
         <div onClick={closeShow} className="flex flex-col py-4 ">
           <NavLink className="bg-white text-txtblue my-6 rounded-lg" to="login">
             <button className="px-3 py-4 ">Login</button>

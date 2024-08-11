@@ -31,7 +31,7 @@ const ModalCreateNewSub = ({ isOpen, onClose }) => {
               onClick={onClose}
               className="p-2 mx-2 border border-secondary-grey rounded-lg bg-secondary-grey3"
             >
-              <Link to="/sign-upForm.jsx">cancel</Link>
+              <Link to="">cancel</Link>
             </button>
             <button
               onClick={() => setIsModalOpen(true)}

@@ -1,6 +1,4 @@
 import React from 'react';
-import UserInfo from '../components/UserInfo';
-import BalanceCard from '../components/AdminBalanceCard';
 import SavingsProgress from '../components/SavingsProgress';
 import AccountsOverview from '../components/AccountsOverview';
 import SearchAndSort from '../components/SearchAndSort';
@@ -21,15 +19,10 @@ const FamilyAccessManagement = () => {
             id="12345"
             profileImg="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
             growth="10"
-            // balance={`{balance}`.toLocaleString()}
             balance="12000"
             Transfer="Transfer Funds"
             Withdraw="Withdraw Funds"
           />
-          {/* I have changed the card to ensure reusability */}
-
-          {/* <UserInfo name="Ritji Ishaku" id="8327642732" />
-          <BalanceCard balance={3500000} growth={10.08} /> */}
         </div>
         {/* Right column */}
         <div className="text-xs md:text-sm ">

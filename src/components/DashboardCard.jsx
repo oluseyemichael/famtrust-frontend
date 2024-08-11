@@ -13,16 +13,28 @@ const DashboardCard = ({
   balance,
   SubacctTransfer,
   RequestFunds,
-  handleClick,
 }) => {
   const [nextModal, setNextModal] = useState(false);
+  const [withdrawModal, setWithdrawModal] = useState(false);
   const [show, setShow] = useState(false);
+  const delModal = () => {
+    setWithdrawModal(false)
+  }
   const onSubmitHandler = (e) => {
     e.preventDefault();
     setNextModal(true);
+    setWithdrawModal(false);
     setShow(true);
-    console.log('submitted');
+    // console.log('submitted');
   };
+  const withdrawHandler = (e) => {
+    e.preventDefault();
+    setNextModal(false);
+    setWithdrawModal(true);
+    
+    // console.log('submitted');
+  };
+ 
 
   return (
     <div className=" shadow rounded-lg py-8 px-8">
@@ -51,7 +63,7 @@ const DashboardCard = ({
           </p>
         </div>
         {/* Action buttons */}
-        <div className="flex  font-semibold">
+        <div className="flex font-semibold">
           {/* Button for Admin transactions */}
           {Transfer ? (
             <div>
@@ -63,7 +75,7 @@ const DashboardCard = ({
               </button>
               <div>
                 {/* Pass in modals for Admin Transactions */}
-                {nextModal && (
+                {nextModal &&(
                   <ModalTransType
                     setNextModal={setNextModal}
                     setShow={setShow}
@@ -74,29 +86,28 @@ const DashboardCard = ({
           ) : (
             ''
           )}
-          {Withdraw ? (
+          {Withdraw && (
             <div>
               <button
                 className="bg-darkerGrey  px-4 py-2 rounded-lg hover:bg-faint-blue"
-                onClick={handleClick}
+                onClick={withdrawHandler}
               >
                 {Withdraw}
               </button>
 
               <div>
                 {/* Pass in modals for Withdrawal */}
-                {/* {nextModal && <ModalWithdraw />} */}
+                {withdrawModal && (<ModalWithdraw setWithdrawModal={setWithdrawModal}  delModal={delModal}/>)}
               </div>
             </div>
-          ) : (
-            ''
+          
           )}
           {/* Button for sub acccount transactions */}
           {SubacctTransfer ? (
             <div>
               <button
                 className="bg-sb-hover-text text-white mr-12 px-4 py-2 rounded-lg hover:bg-blue-800"
-                onClick={onSubmitHandler}
+                onClick={withdrawHandler}
               >
                 {SubacctTransfer}
               </button>

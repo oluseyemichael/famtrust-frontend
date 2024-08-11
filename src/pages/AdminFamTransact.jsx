@@ -1,10 +1,8 @@
 import React from 'react';
-import UserInfo from '../components/UserInfo';
-import BalanceCard from '../components/AdminBalanceCard';
+
 import SavingsProgress from '../components/SavingsProgress';
-import AccountsOverview from '../components/AccountsOverview';
 import SearchAndSort from '../components/SearchAndSort';
-import SubAccountsTable from '../components/SubAccountsTable';
+
 import TransactionHistoryTable from '../components/TransactionHistoryTable';
 import DashboardCard from '../components/DashboardCard';
 

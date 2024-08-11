@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '../../components/Button';
 import { FaTimes } from 'react-icons/fa';
 
-const ModalConfirmTrans = ({ allValues, delModal }) => {
+const ModalConfirmTrans = ({ allValues, removeModal }) => {
   const { amount } = allValues;
   console.log(allValues);
   return (
@@ -12,7 +12,7 @@ const ModalConfirmTrans = ({ allValues, delModal }) => {
           <h1 className="text-txtblue  font-lato text-2xl font-bold pt-6">
             Confirm Transaction
           </h1>
-          <div onClick={delModal}>
+          <div onClick={removeModal}>
             <FaTimes />
           </div>
         </div>

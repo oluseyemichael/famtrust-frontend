@@ -6,7 +6,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { useState } from 'react';
 import ModalConfirmTrans from './ModalConfirmTrans';
 
-const ModalWithdraw = ({ delModal }) => {
+const ModalWithdraw = ({ setWithdrawModal }) => {
   const [confirm, setConfirm] = useState(false);
   const [allValues, setAllValues] = useState({
     amount: '',
@@ -24,15 +24,19 @@ const ModalWithdraw = ({ delModal }) => {
     // setSelected(e.target.value);
   };
 
+  const delModal = () =>{
+    setWithdrawModal(false)
+  }
   return (
+   
     <div className="bg-[rgba(18,18,18,0.50)] fixed flex flex-col justify-center items-center top-[0] bottom-0 right-0 left-0 z-10">
       <div className="md:px-16 px-6 w-[60%] mx-auto bg-[#F9F8FF] py-3 border-[1px] border-[solid] border-[#E2E2E2] rounded my-10 text-base font-lato ">
         <div className="flex justify-between items-center">
           <h1 className="text-txtblue  font-lato text-3xl font-bold py-4">
             Withdraw To Bank Account
           </h1>
-          <div>
-            <FaTimes onClick={delModal} />
+          <div onClick={delModal}>
+            <FaTimes   />
           </div>
         </div>
 
@@ -98,7 +102,7 @@ const ModalWithdraw = ({ delModal }) => {
             Confirm
           </button>
           {confirm ? (
-            <ModalConfirmTrans allValues={allValues} delModal={delModal} />
+            <ModalConfirmTrans allValues={allValues} removeModal={removeModal} />
           ) : (
             ''
           )}

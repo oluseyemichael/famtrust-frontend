@@ -26,6 +26,7 @@ const Login = ({ onClickHandler }) => {
     try {
       if (login.email && login.password) {
         const Response = await LoginApi(login);
+        // {Add Logic for Sub-Account Logic}
         navigate('/dashboard');
         console.log(Response, 'from LOGIN');
         if (Response.status === 'success') {

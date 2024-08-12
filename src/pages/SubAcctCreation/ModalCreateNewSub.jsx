@@ -1,7 +1,13 @@
 import React from 'react';
 import Button from '../../components/Button';
+import { useState
+
+ } from 'react';
 
 const ModalCreateNewSub = () => {
+  const[create, setCreate] = useState({
+    
+  });
   return (
     <div className="bg-[rgba(18,18,18,0.50)] fixed flex flex-col justify-center items-center top-[0] bottom-0 right-0 left-0">
       <div className="md:px-16 px-6 w-[40%] mx-auto bg-[#F9F8FF] pt-4 border-[1px] border-[solid] border-[#E2E2E2] rounded-xl text-base font-lato">

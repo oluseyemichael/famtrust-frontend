@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import ModalWithdraw from '../pages/SubAccountFamilyTrans/ModalWithdraw';
+import MoSubTransTypeprops from '../pages/SubAccountFamilyTrans/MoSubTransTypeprops';
 
 const DashboardCard = ({
   name,
@@ -66,7 +67,7 @@ const DashboardCard = ({
                 </button>
                 <div>
                   {/* Pass in modals for Withdrawal */}
-                  {nextModal === 1 && <ModalWithdraw setShow={setShow} />}
+                  {nextModal === 1 && <MoSubTransTypeprops setShow={setShow} transactionType label="Withdraw" title="withdraw" />}
                 </div>
               </div>
             ) : ('')

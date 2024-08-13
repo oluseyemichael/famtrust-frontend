@@ -101,7 +101,7 @@ const Sidebar = () => {
     ];
 
     return (
-        <div className={`bg-sb-bg text-sb-text-color ${isSmallScreen ? 'w-16' : 'w-1/4'} h-full fixed flex flex-col items-center font-bold transition-all duration-300`}>
+        <div className={`bg-sb-bg text-sb-text-color ${isSmallScreen ? 'w-1/6' : 'w-1/4'} h-full fixed flex flex-col items-center font-bold transition-all duration-300`}>
             {/* Logo section */}
             <div className="w-full text-center">
                 {isSmallScreen ? (
@@ -126,7 +126,7 @@ const Sidebar = () => {
                         {/* Menu item */}
                         <div className={`flex ${isSmallScreen ? 'justify-center' : 'justify-between'} items-center cursor-pointer hover:text-sb-hover-text hover:bg-sb-hover-bg hover:rounded hover:px-2.5 hover:py-2 ${isSmallScreen ? '' : 'lg:space-x-16'}`}>
                             <ul className={`flex items-center ${isSmallScreen ? 'justify-center' : 'space-x-2'}`}>
-                                <li className={isSmallScreen ? 'text-2xl' : ''}>{item.icon}</li>
+                                <li className={isSmallScreen ? 'text-2xl' : ''}><a href={item.href}>{item.icon}</a></li>
                                 {/* Show label on medium and large screens */}
                                 {!isSmallScreen && <li><a href={item.href}>{item.label}</a></li>}
                             </ul>

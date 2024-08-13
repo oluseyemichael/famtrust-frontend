@@ -12,6 +12,7 @@ import ModalWithdraw from './ModalWithdraw';
 import { useState } from 'react'
 import MoSubRequestFund from './MoSubRequestFund'
 import MoSubTransType from './MoSubTransType'
+import MoSubTransTypeprops from './MoSubTransTypeprops'
 
 const SubAcctfamTrans = () => {
     const[nextModal, setNextModal] = useState(null);
@@ -34,7 +35,8 @@ const SubAcctfamTrans = () => {
         {/* {nextModal === 1 && <ModalSecurityVerify setShow={setShow}/>} */}
         {/* {nextModal === 1 && <MoSubTransType setShow={setShow}/>} */}
         {/* {nextModal === 1 && <MoSubRequestFund setShow={setShow}/>} */}
-        {nextModal === 1 && <ModalOtherTrans setShow={setShow}/>}
+        {/* {nextModal === 1 && <MoSubTransTypeprops setShow={setShow}/>} */}
+        {nextModal === 6 && <ModalOtherTrans setShow={setShow}/>}
         {nextModal === 5 && <ModalVerification setShow={setShow}/>}
         {nextModal === 2 && <ModalTransType setShow={setShow}/>}
         {nextModal === 2 && <ModalWithdraw setShow={setShow}/>}

@@ -32,10 +32,10 @@ const DashboardCard = ({
     e.preventDefault();
     setNextModal(false);
     setWithdrawModal(true);
-    
+
     // console.log('submitted');
   };
- 
+
 
   return (
     <div className=" shadow rounded-lg py-8 px-8">
@@ -76,7 +76,7 @@ const DashboardCard = ({
               </button>
               <div>
                 {/* Pass in modals for Admin Transactions */}
-                {nextModal &&(
+                {nextModal && (
                   <ModalTransType
                     setNextModal={setNextModal}
                     setShow={setShow}
@@ -97,16 +97,12 @@ const DashboardCard = ({
               </button>
 
               <div>
-                <button className="bg-darkerGrey  px-4 py-2 rounded-lg hover:bg-faint-blue" onClick={onSubmitHandler}>
-                  {Withdraw}
-                </button>
-                <div>
-                  {/* Pass in modals for Withdrawal */}
-                  {nextModal === 1 && <MoSubTransTypeprops setShow={setShow} transactionType label="Withdraw" title="withdraw" />}
-                </div>
+                {/* Pass in modals for Withdrawal */}
+                {/* {nextModal && <ModalWithdraw />} */}
+                {withdrawModal && (<ModalWithdraw setWithdrawModal={setWithdrawModal} delModal={delModal} />)}
               </div>
             </div>
-          
+
           )}
           {/* Button for sub acccount transactions */}
           {SubacctTransfer ? (
@@ -117,7 +113,14 @@ const DashboardCard = ({
               >
                 {SubacctTransfer}
               </button>
-              <div>{/* Pass in modals for Sub account transactions */}</div>
+              <div>{/* Pass in modals for Sub account transactions */}
+                {nextModal && (
+                  <ModalTransType
+                    setNextModal={setNextModal}
+                    setShow={setShow}
+                  />
+                )}
+              </div>
             </div>
           ) : (
             ''

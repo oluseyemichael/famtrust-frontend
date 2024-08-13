@@ -16,7 +16,7 @@ const SubAcctCreation = ({ isOpen, onClose }) => {
         </span>
 
         <p className="text-primary-green2 text-xs font-semibold">
-          Onboarding request send
+          Onboarding request sent
         </p>
 
         <button
